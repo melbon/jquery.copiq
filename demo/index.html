@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <symbol id="icon-copy" viewBox="0 0 32 32">
+        <path d="M20 8v-8h-14l-6 6v18h12v8h20v-24h-12zM6 2.828v3.172h-3.172l3.172-3.172zM2 22v-14h6v-6h10v6l-6 6v8h-10zM18 10.828v3.172h-3.172l3.172-3.172zM30 30h-16v-14h6v-6h10v20z"></path>
+    </symbol>
+</svg>
+
+<div id="wrapper">
+    <div class="item">
+        <div class="text">
+            Ben Watson <br />
+            P.O. Box 399 4275 Jack Street <br />
+            Thiensville Maryland 19587 <br />
+            (676) 647-4641
+        </div>
+        <button class="copy" data-text="COPY" data-text-copied="COPIED">
+            <svg class="icon icon-copy">
+                <use xlink:href="#icon-copy"></use>
+            </svg>
+            <span>COPY</span>
+        </button>
+    </div>
+    <div class="item">
+        <div class="text">
+            Nick Blair <br />
+            95 Netus Rd. <br />
+            Sedalia Utah 53700 <br />
+            (252) 848-9710
+        </div>
+        <button class="copy" data-text="COPY" data-text-copied="COPIED">
+            <svg class="icon icon-copy">
+                <use xlink:href="#icon-copy"></use>
+            </svg>
+            <span>COPY</span>
+        </button>
+    </div>
+    <div class="item">
+        <div class="text">
+            Ina Logan <br />
+            76th Ave <br />
+            Laughlin Hawaii 99602 <br />
+            (725) 555-4564
+        </div>
+        <button class="copy" data-text="COPY" data-text-copied="COPIED">
+            <svg class="icon icon-copy">
+                <use xlink:href="#icon-copy"></use>
+            </svg>
+            <span>COPY</span>
+        </button>
+    </div>
+</div>
+
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="../jquery.copiq.js"></script>
+<script>
+    $('button').copiq({
+        parent: '.item',
+        content: '.text',
+        onSuccess: function($element, source, selection) {
+            $('span', $element).text($element.attr("data-text-copied"));
+            setTimeout(function() {
+                $('span', $element).text($element.attr("data-text"));
+            }, 2000);
+        }
+    });
+</script>
+</body>
+</html>
