@@ -30,13 +30,13 @@ options: string
 when the copy is successful
 ```javascript
 default: {}
-options: function
+options: function($element, container, selection)
 ```
 #### onError
 when the copy is **not** successful
 ```javascript
 default: {}
-options: function
+options: function($element, container, selection)
 ```
 ## Demo
 <a href="http://codepen.io/mel/full/VzKKjz" target="_blank">codepen.io/mel/full/VzKKjz</a>
